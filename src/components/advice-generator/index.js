@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 async function adviceGenerator() {
     const response = await fetch("https://api.adviceslip.com/advice")
-    return await response.json()
+    const teste = await response.json()
+    return teste.slip
 }
 
 console.log(await adviceGenerator());
@@ -11,16 +12,20 @@ export const Main = () => {
 
     const [advice, setAdvice ] = useState({})
 
+    useEffect(() => {
+        const fetchData = async () => {
+            const datos = await adviceGenerator()
+
+            setAdvice({datos})
+        }
+        fetchData()
+    },[])
+
     return(
         <section>
-            <div>
-                <h1>ADVICD <span></span> </h1>
-                <p></p>
-                <img src="" alt="" />
-                <button>
-                    <img src="" alt="" />
-                </button>
-            </div>
+            {
+                
+            }
         </section>
     )
 }
