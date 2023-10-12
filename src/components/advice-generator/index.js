@@ -1,32 +1,13 @@
-import { useState, useEffect } from "react";
-
-async function adviceGenerator() {
+async function createAdvice() {
     const response = await fetch("https://api.adviceslip.com/advice")
-    const teste = await response.json()
-    return teste.slip
+    return await response.json()
 }
 
-console.log(await adviceGenerator());
+console.log(await createAdvice());
 
 export const Main = () => {
-
-    const [advice, setAdvice ] = useState({})
-
-    useEffect(() => {
-        const fetchData = async () => {
-            const datos = await adviceGenerator()
-
-            setAdvice({datos})
-        }
-        fetchData()
-    },[])
-
     return(
-        <section>
-            {
-                
-            }
-        </section>
+        <h1>Título</h1>
     )
 }
 
