@@ -24,8 +24,14 @@ export const Main = () => {
                 deck.slip.map((item, index) => {
                     return(
                         <div key={index}>
-                            <h2>{item.slip.id}</h2>
+                            <h2>ADVICE #{item.slip.id}</h2>
                             <p>{item.slip.advice}</p>
+
+                            <img />
+
+                            <button>
+                                <img />
+                            </button>
                         </div>
                     )
                 })
