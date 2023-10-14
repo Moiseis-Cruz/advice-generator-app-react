@@ -20,6 +20,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     background-color: black;
+    font-family: 'Manrope', sans-serif;
   }
 
   img {
