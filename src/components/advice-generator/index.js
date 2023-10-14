@@ -28,7 +28,7 @@ export const Main = () => {
                 deck.slip.map((item, index) => {
                     return(
                         <Card key={index}>
-                            <h2>ADVICE #{item.slip.id}</h2>
+                            <Title>ADVICE #{item.slip.id}</Title>
                             <p>{item.slip.advice}</p>
 
                             <picture>
@@ -66,4 +66,12 @@ const Card = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+`
+
+const Title = styled.h2`
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 3.5px;
+    color: #52FFA8;
+    margin-top: 47px;
 `
