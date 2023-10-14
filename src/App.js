@@ -17,6 +17,10 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
     border-box: box-sizing;
   }
+
+  body {
+    background-color: black;
+  }
 `
 
 export default App;
