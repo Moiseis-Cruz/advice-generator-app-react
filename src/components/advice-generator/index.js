@@ -36,9 +36,9 @@ export const Main = () => {
                                 <img src={ImgGreat} alt="Descrição da imagem" />
                             </picture>
 
-                            <button>
+                            <Button>
                                 <img src={ImgDiceButton} />
-                            </button>
+                            </Button>
                         </Card>
                     )
                 })
@@ -66,6 +66,7 @@ const Card = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    position: relative;
 `
 
 const Title = styled.h2`
@@ -87,7 +88,18 @@ const Advice = styled.p`
     letter-spacing: -0.28px;
     max-width: 437px;
     width: 100%;
-    margin-top: 24px;
     height: 124px;
-    background-color: blue;
+    margin-top: 24px;
+`
+
+const Button = styled.button`
+    background-color: #52FFA8;
+    position: absolute;
+    bottom: -32px;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
 `
