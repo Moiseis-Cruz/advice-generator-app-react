@@ -31,13 +31,13 @@ export const Main = () => {
                             <Title>ADVICE #{item.slip.id}</Title>
                             <Advice>{item.slip.advice}</Advice>
 
-                            <picture>
+                            <Picture>
                                 <source media="(max-width: 375px)" srcSet={ImgSmall} />
                                 <img src={ImgGreat} alt="Descrição da imagem" />
-                            </picture>
+                            </Picture>
 
                             <Button>
-                                <img src={ImgDiceButton} />
+                                <ImgButton src={ImgDiceButton} />
                             </Button>
                         </Card>
                     )
@@ -60,7 +60,7 @@ const Section = styled.section`
 const Card = styled.div`
     max-width: 540px;
     width: 100%;
-    height: 332px;
+    min-height: 332px;
     border-radius: 15px;
     background-color: #323A49;
     display: flex;
@@ -80,16 +80,19 @@ const Title = styled.h2`
 const Advice = styled.p`
     color: #CEE3E9;
     text-align: center;
-    font-family: Manrope;
     font-size: 28px;
-    font-style: normal;
     font-weight: 800;
-    line-height: normal;
     letter-spacing: -0.28px;
     max-width: 437px;
     width: 100%;
-    height: 124px;
+    min-height: 124px;
     margin-top: 24px;
+`
+
+const Picture = styled.picture`
+    max-width: 444px;
+    width: 100%;
+    margin-top: 48px;
 `
 
 const Button = styled.button`
@@ -102,4 +105,8 @@ const Button = styled.button`
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+`
+const ImgButton = styled.img`
+    width: 20px;
+    height: 20px;
 `
