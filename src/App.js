@@ -21,6 +21,10 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: black;
   }
+
+  img {
+    width: 100%;
+  }
 `
 
 export default App;
