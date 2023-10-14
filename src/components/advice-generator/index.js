@@ -37,7 +37,7 @@ export const Main = () => {
                             </Picture>
 
                             <Button>
-                                <ImgButton src={ImgDiceButton} />
+                                <ImgButton src={ImgDiceButton} onClick={() => {}} />
                             </Button>
                         </Card>
                     )
@@ -93,6 +93,7 @@ const Picture = styled.picture`
     max-width: 444px;
     width: 100%;
     margin-top: 48px;
+    margin-bottom: 72px;
 `
 
 const Button = styled.button`
