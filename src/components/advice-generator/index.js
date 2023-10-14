@@ -45,8 +45,3 @@ export const Main = () => {
         </section>
     )
 }
-
-/* 
-.slip.advice
-.slip.id
-*/
