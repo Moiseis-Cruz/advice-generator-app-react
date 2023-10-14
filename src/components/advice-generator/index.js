@@ -29,7 +29,7 @@ export const Main = () => {
                     return(
                         <Card key={index}>
                             <Title>ADVICE #{item.slip.id}</Title>
-                            <p>{item.slip.advice}</p>
+                            <Advice>{item.slip.advice}</Advice>
 
                             <picture>
                                 <source media="(max-width: 375px)" srcSet={ImgSmall} />
@@ -74,4 +74,20 @@ const Title = styled.h2`
     letter-spacing: 3.5px;
     color: #52FFA8;
     margin-top: 47px;
+`
+
+const Advice = styled.p`
+    color: #CEE3E9;
+    text-align: center;
+    font-family: Manrope;
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    letter-spacing: -0.28px;
+    max-width: 437px;
+    width: 100%;
+    margin-top: 24px;
+    height: 124px;
+    background-color: blue;
 `
