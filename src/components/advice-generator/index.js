@@ -1,4 +1,7 @@
 import { useState, useEffect } from "react";
+import ImgDiceButton from "../imgs/icon-dice.svg"
+import ImgGreat from "../imgs/pattern-divider-desktop.svg"
+import ImgSmall from "../imgs/pattern-divider-mobile.svg"
 
 async function createAdvice() {
     const response = await fetch("https://api.adviceslip.com/advice")
@@ -27,10 +30,13 @@ export const Main = () => {
                             <h2>ADVICE #{item.slip.id}</h2>
                             <p>{item.slip.advice}</p>
 
-                            <img />
+                            <picture>
+                                <source media="(max-width: 375px)" srcSet={ImgSmall} />
+                                <img src={ImgGreat} alt="Descrição da imagem" />
+                            </picture>
 
                             <button>
-                                <img />
+                                <img src={ImgDiceButton} />
                             </button>
                         </div>
                     )
