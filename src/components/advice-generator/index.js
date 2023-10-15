@@ -3,6 +3,7 @@ import ImgDiceButton from "../imgs/icon-dice.svg"
 import ImgGreat from "../imgs/pattern-divider-desktop.svg"
 import ImgSmall from "../imgs/pattern-divider-mobile.svg"
 import styled from "styled-components";
+import { ButtonClick } from "../button";
 
 async function createAdvice() {
     const response = await fetch("https://api.adviceslip.com/advice")
@@ -36,9 +37,9 @@ export const Main = () => {
                                 <img src={ImgGreat} alt="Descrição da imagem" />
                             </Picture>
 
-                            <Button>
+                            <ButtonClick>
                                 <ImgButton src={ImgDiceButton} />
-                            </Button>
+                            </ButtonClick>
                         </Card>
                     )
                 })
@@ -96,17 +97,6 @@ const Picture = styled.picture`
     margin-bottom: 72px;
 `
 
-const Button = styled.button`
-    background-color: #52FFA8;
-    position: absolute;
-    bottom: -32px;
-    width: 64px;
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-`
 const ImgButton = styled.img`
     width: 20px;
     height: 20px;
