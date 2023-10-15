@@ -3,7 +3,6 @@ import ImgDiceButton from "../imgs/icon-dice.svg"
 import ImgGreat from "../imgs/pattern-divider-desktop.svg"
 import ImgSmall from "../imgs/pattern-divider-mobile.svg"
 import styled from "styled-components";
-import { ButtonClick } from "../button";
 
 async function createAdvice() {
     const response = await fetch("https://api.adviceslip.com/advice")
@@ -12,21 +11,28 @@ async function createAdvice() {
 
 export const Main = () => {
 
-    const [ generate, setGenerate ] = useState({slip: []})
+    const [ deck, setDeck ] = useState({slip: []})
 
     useEffect(() => {
         async function dataFetch() {
             const adviceId = await createAdvice()
 
-            setGenerate({slip: [adviceId]})
+            setDeck({slip: [adviceId]})
         }
         dataFetch()
     }, [])
 
+    const gerateNewAdvice = (newAdvice) => {
+        console.log(newAdvice);
+        setDeck({
+            slip: [...deck, newAdvice]
+        })
+    }
+
     return(
         <Section>
             {
-                generate.slip.map((item, index) => {
+                deck.slip.map((item, index) => {
                     return(
                         <Card key={index}>
                             <Title>ADVICE #{item.slip.id}</Title>
@@ -37,9 +43,9 @@ export const Main = () => {
                                 <img src={ImgGreat} alt="Descrição da imagem" />
                             </Picture>
 
-                            <ButtonClick>
+                            <Button gerateNewAdvice={gerateNewAdvice}>
                                 <ImgButton src={ImgDiceButton} />
-                            </ButtonClick>
+                            </Button>
                         </Card>
                     )
                 })
@@ -97,6 +103,17 @@ const Picture = styled.picture`
     margin-bottom: 72px;
 `
 
+const Button = styled.button`
+    background-color: #52FFA8;
+    position: absolute;
+    bottom: -32px;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+`
 const ImgButton = styled.img`
     width: 20px;
     height: 20px;
