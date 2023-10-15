@@ -11,13 +11,13 @@ async function createAdvice() {
 
 export const Main = () => {
 
-    const [ deck, setDeck ] = useState({slip: []})
+    const [ generate, setGenerate ] = useState({slip: []})
 
     useEffect(() => {
         async function dataFetch() {
             const adviceId = await createAdvice()
 
-            setDeck({slip: [adviceId]})
+            setGenerate({slip: [adviceId]})
         }
         dataFetch()
     }, [])
@@ -25,7 +25,7 @@ export const Main = () => {
     return(
         <Section>
             {
-                deck.slip.map((item, index) => {
+                generate.slip.map((item, index) => {
                     return(
                         <Card key={index}>
                             <Title>ADVICE #{item.slip.id}</Title>
@@ -37,7 +37,7 @@ export const Main = () => {
                             </Picture>
 
                             <Button>
-                                <ImgButton src={ImgDiceButton} onClick={() => {}} />
+                                <ImgButton src={ImgDiceButton} />
                             </Button>
                         </Card>
                     )
