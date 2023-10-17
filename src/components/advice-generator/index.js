@@ -11,28 +11,27 @@ async function createAdvice() {
 
 export const Main = () => {
 
-    const [ deck, setDeck ] = useState({slip: []})
+    const [ generate, setGenerate ] = useState({slip: []})
+
+    const gerateNewAdvice = async () => {
+        const advice = await createAdvice();
+        setGenerate({ slip: [advice] });
+    };
+
 
     useEffect(() => {
         async function dataFetch() {
             const adviceId = await createAdvice()
 
-            setDeck({slip: [adviceId]})
+            setGenerate({slip: [adviceId]})
         }
         dataFetch()
     }, [])
 
-    const gerateNewAdvice = (newAdvice) => {
-        console.log(newAdvice);
-        setDeck({
-            slip: [...deck, newAdvice]
-        })
-    }
-
     return(
         <Section>
             {
-                deck.slip.map((item, index) => {
+                generate.slip.map((item, index) => {
                     return(
                         <Card key={index}>
                             <Title>ADVICE #{item.slip.id}</Title>
@@ -43,7 +42,7 @@ export const Main = () => {
                                 <img src={ImgGreat} alt="Descrição da imagem" />
                             </Picture>
 
-                            <Button gerateNewAdvice={gerateNewAdvice}>
+                            <Button onClick={gerateNewAdvice}>
                                 <ImgButton src={ImgDiceButton} />
                             </Button>
                         </Card>
@@ -113,6 +112,7 @@ const Button = styled.button`
     align-items: center;
     justify-content: center;
     border-radius: 50%;
+    cursor: pointer;
 `
 const ImgButton = styled.img`
     width: 20px;
